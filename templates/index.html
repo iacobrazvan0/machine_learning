@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Motorcycle Recommendation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%23000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'/%3E%3Cpath fill='none' d='M0 0h24v24H0V0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Motorcycle Recommendation</h1>
+    <form action="/recommend" method="post">
+        <label>Year: <input type="text" name="Year"></label><br>
+        <label>Displacement (ccm): <input type="text" name="Displacement"></label><br>
+        <label>Power (hp): <input type="text" name="Power"></label><br>
+        <label>Torque (Nm): <input type="text" name="Torque"></label><br>
+        <label>Bore (mm): <input type="text" name="Bore"></label><br>
+        <label>Stroke (mm): <input type="text" name="Stroke"></label><br>
+        <label>Fuel capacity (lts): <input type="text" name="Fuel_capacity"></label><br>
+        <label>Dry weight (kg): <input type="text" name="Dry_weight"></label><br>
+        <label>Wheelbase (mm): <input type="text" name="Wheelbase"></label><br>
+        <label>Seat height (mm): <input type="text" name="Seat_height"></label><br>
+        <label>Category: 
+            <select name="Category">
+                <option value="ATV">ATV</option>
+                <option value="Allround">Allround</option>
+                <option value="Classic">Classic</option>
+                <option value="Cross / motocross">Cross / motocross</option>
+                <option value="Custom / cruiser">Custom / cruiser</option>
+                <option value="Enduro / offroad">Enduro / offroad</option>
+                <option value="Minibike, cross">Minibike, cross</option>
+                <option value="Minibike, sport">Minibike, sport</option>
+                <option value="Naked bike">Naked bike</option>
+                <option value="Prototype / concept model">Prototype / concept model</option>
+                <option value="Scooter">Scooter</option>
+                <option value="Speedway">Speedway</option>
+                <option value="Sport">Sport</option>
+                <option value="Sport touring">Sport touring</option>
+                <option value="Super motard">Super motard</option>
+                <option value="Touring">Touring</option>
+                <option value="Trial">Trial</option>
+                <option value="Unspecified category">Unspecified category</option>
+            </select>
+        </label><br>
+        <input type="submit" value="Recommend Motorcycles">
+    </form>
+</body>
+</html>

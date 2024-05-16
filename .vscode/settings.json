@@ -1,0 +1,4 @@
+{
+    "CodeGPT.apiKey": "CodeGPT Enterprise",
+    "python.analysis.autoImportCompletions": true
+}
