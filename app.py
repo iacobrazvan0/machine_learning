@@ -55,7 +55,7 @@ def recommend():
     if seat_height:
         features['Seat height (mm)'] = float(seat_height)
     
-    # Convert features to DataFrame
+# Convert features to DataFrame
     df = pd.DataFrame([features])
     
     # Filter motorcycles based on provided specifications
@@ -63,14 +63,11 @@ def recommend():
     for feature, value in features.items():
         filtered_motorcycles = filtered_motorcycles[filtered_motorcycles[feature] == value]
 
-    # If 'Category' is provided, check if any category column has a value of 1
+    # If 'Category' is provided, check if motorcycles belong to the selected category
     if category:
-        category_columns = [col for col in filtered_motorcycles.columns if col.startswith('Category_')]
-        category_filter = filtered_motorcycles[category_columns].sum(axis=1) > 0
-        filtered_motorcycles = filtered_motorcycles[category_filter]
+        category_column = 'Category_' + category
+        filtered_motorcycles = filtered_motorcycles[filtered_motorcycles[category_column] == 1]
 
-    
-    # Get names of recommended motorcycles
     # Concatenate 'Brand' and 'Model' columns
     filtered_motorcycles['Brand_Model'] = filtered_motorcycles['Brand'] + ' ' + filtered_motorcycles['Model']
 
@@ -78,7 +75,6 @@ def recommend():
     recommended_motorcycles = filtered_motorcycles['Brand_Model'].tolist()
     
     return render_template('result.html', motorcycles=recommended_motorcycles)
-
 
 if __name__ == '__main__':
     app.run(debug=True)
