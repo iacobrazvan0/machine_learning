@@ -45,12 +45,14 @@
     </style>
 </head>
 <body>
-    <h1>Recommended Motorcycles</h1>
+    <h1>Motorcycle Recommendations</h1>
+    <p>Predicted Rating: {{ predicted_rating }}</p>
+    <h2>Top Similar Motorcycles:</h2>
     <ul>
         {% for motorcycle in motorcycles %}
-            <li>{{ motorcycle }}</li>
+            <li>{{ motorcycle[0] }} {{ motorcycle[1] }}: {{ motorcycle[2] }}</li>
         {% endfor %}
     </ul>
-    <a href="/">Go back to home page</a>
+    <a href="/">Back to Home</a>
 </body>
 </html>
